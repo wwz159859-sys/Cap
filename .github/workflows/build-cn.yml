@@ -65,7 +65,8 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
 
-      - name: Upload DMG
+       - name: Upload DMG
+         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Cap-CN-macOS-${{ matrix.target }}-${{ steps.read_version.outputs.value }}
